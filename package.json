@@ -1,0 +1,21 @@
+{
+  "name": "casalista",
+  "version": "1.0.0",
+  "description": "senac 135-159",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "senac 103",
+  "license": "ISC",
+  "dependencies": {
+    "express":"",
+    "express-load": "^1.1.16",
+    "express-session":"*",
+    "method-override":"*",
+    "body-parser":"*",
+    "cookie-parser":"*",
+    "ejs":"*"
+
+  }
+}
