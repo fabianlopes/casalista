@@ -1,17 +1,22 @@
 <div class="col-xs-12">
     <table class="table table-bordered table-striped">
         <thead><tr>
-            <th>Presente</th> <th>Valor</th><th>Ação</th>
+            <th>Presente</th>
+            <th>Valor</th>
+            <th>Ação</th>
         </tr>
         </thead>
+        
         <tbody>
-            <%- presentes.forEach(function(presente, index) { %>
-            <tr>
+            <% presentes.forEach(function(presente, index) { %>
+              <tr>
                 <td><%- presente.nome %></td>
                 <td><%- presente.valor %></td>
-                <td><%- if (!presente.comprado) {%> <a href="/comprar/<%- index %>">Comprar</a><%}%></td>
-            </tr>
-            <%- }) %>
+                <td><% if(!presente.comprado) { %> <a href="/comprar/<%- index %>">Comprar</a> <% } %></td>                
+              </tr>
+            <% }) %>
         </tbody>
+        
+        
     </table>
 </div>
