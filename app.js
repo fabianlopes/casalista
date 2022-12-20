@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Importa e instancia um servidor express
 var express = require("express"),
     bodyParser = require("body-parser"),
@@ -37,7 +36,6 @@ app.use(expressSession({
 }));
 
 // Carrega todas as scripts da pasta controller e routes
-=======
 // Importa e instancia um servidor express
 var express = require("express"),
     bodyParser = require("body-parser"),
@@ -76,5 +74,4 @@ app.use(expressSession({
 }));
 
 // Carrega todas as scripts da pasta controller e routes
->>>>>>> dc743bc8727d544a7ee411e5f79a8b4d826e36b7
 load("controllers") .then("routes") .then("models")  .into(app);
