@@ -2,14 +2,12 @@
 var express = require("express"),
     bodyParser = require("body-parser"),
     load = require("express-load"),
-    expressSession = require("express-session"),
+    expressSession = require("express-session"),    
     ejs = require('ejs')
     app = express();
 
-/*var teste
-    ejs.open = '{{'; 
-    ejs.close = '}}';
-*/
+const mysql = require('mysql2');
+
 
 // Sobe o servidor HTTP na posta 3000
 app.listen(3000, function () {
@@ -35,5 +33,16 @@ app.use(expressSession({
       saveUninitialized: true
 }));
 
+//app.get('/listagem', (req, res) => { execSQLQuery('SELECT * FROM presentes', res) });
+
 // Carrega todas as scripts da pasta controller e routes
 load("controllers") .then("routes") .then("models")  .into(app);
+
+	
+(async () => {
+    const db = require("./db");
+    console.log('Começou!');    
+    const presentes = await db.selectPresentes();
+    console.log(presentes);
+})();
+
