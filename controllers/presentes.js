@@ -10,13 +10,22 @@ module.exports = function (app) {
              };
              lista.presentes.push(presente);
              res.redirect("/presentes"); },
+        incluirnobanco: function (req, res) {
+            (async () => {
+                const db = require("../db");
+                console.log('conectou pela API');                
+                const nome = req.body.nome.substring(0,50);
+                const cpf = req.body.valor.substring(0,11);
+                const status = 1;
+                execSQLQuery(`INSERT INTO Clientes(Nome, CPF) VALUES('${nome}','${cpf}','${status}')`, res);
+            })(); },             
         listar: function (req, res) {
             (async () => {
                 const db = require("../db");
                 console.log('conectou pela API');                
                 const presentes = await db.execSQLQuery('SELECT * FROM presentes', res);
-                console.log(presentes);
-                res.redirect("/listar");
+                //console.log(presentes);
+                //res.redirect("/listar");
             })(); },             
         comprar: function (req, res) {
             var id = req.params.id;
@@ -25,3 +34,5 @@ module.exports = function (app) {
     };
     return PresentesController;
 };
+
+
