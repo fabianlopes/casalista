@@ -1,3 +1,5 @@
+module.exports = {selectPresentes, execSQLQuery}
+
 async function connect(){
     if(global.connection && global.connection.state !== 'disconnected')
         return global.connection;
@@ -14,8 +16,6 @@ async function selectPresentes(){
     const [rows] = await conn.query('SELECT * FROM presentes;');
     return rows;
 }
-
-module.exports = {selectPresentes}
 
 async function execSQLQuery(sqlQry, res){
 

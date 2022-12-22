@@ -10,6 +10,14 @@ module.exports = function (app) {
              };
              lista.presentes.push(presente);
              res.redirect("/presentes"); },
+        listar: function (req, res) {
+            (async () => {
+                const db = require("../db");
+                console.log('conectou pela API');                
+                const presentes = await db.execSQLQuery('SELECT * FROM presentes', res);
+                console.log(presentes);
+                res.redirect("/listar");
+            })(); },             
         comprar: function (req, res) {
             var id = req.params.id;
             req.session.lista.presentes[id].comprado = true;
