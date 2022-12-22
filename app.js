@@ -6,7 +6,7 @@ var express = require("express"),
     ejs = require('ejs')
     app = express();
 
-/*var 
+/*var teste
     ejs.open = '{{'; 
     ejs.close = '}}';
 */
