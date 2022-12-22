@@ -14,10 +14,10 @@ module.exports = function (app) {
             (async () => {
                 const db = require("../db");
                 console.log('conectou pela API');                
-                const nome = req.body.nome.substring(0,50);
-                const cpf = req.body.valor.substring(0,11);
+                const nome = req.body.nome;
+                const valor = req.body.valor;
                 const status = 1;
-                execSQLQuery(`INSERT INTO Clientes(Nome, CPF) VALUES('${nome}','${cpf}','${status}')`, res);
+                const presentes = await db.execSQLQuery(`INSERT INTO presentes(Nome, Valor, Status) VALUES('${nome}','${valor}','${status}')`, res);
             })(); },             
         listar: function (req, res) {
             (async () => {

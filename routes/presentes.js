@@ -4,6 +4,6 @@ module.exports = function (app) {
     app.get("/listar", presentes.listar);
     app.get("/comprar/:id", presentes.comprar);
     app.post("/presentes", presentes.incluir);
-    app.post("/incluirbanco", presentes.incluirnobanco);
+    app.post("/incluirnobanco", presentes.incluirnobanco);
     
 };
